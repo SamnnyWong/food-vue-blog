@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 20%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+            font-family: Helvetica;
+            font-weight: lighter;
+        }
+
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 13px;
+            color: #ffffff;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: dodgerblue;
+        }
+
+        .main {
+            margin-left: 160px; /* Same as the width of the sidenav */
+            font-size: 28px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body style="overflow-x:hidden;" bgcolor="black">
+
+<div class="sidenav">
+    <a href="#about">Home</a>
+    <a href="#services">Restaurants</a>
+    <a href="#clients">Dev blogs</a>
+    <a href="/about.html" class ="btn" >About me</a>
+    <img src="media/icon.jpg" alt="Avatar" width="30%" style="border-radius: 50%">
+    <div>#foodie #food_enthuisastic #programmer #full stack developer #love gadgets</div>
+    </br>
+    <div style="color:white;">
+        【Name】 Masaru Ueno (pen name from elementary school days)
+    </div>
+    </br>
+    <div style="color:white;"> 【Lifetime so far】 August 1962 Born in Kurume City,
+        Fukuoka Prefecture. I spent four years as a student in Kyoto, and I went to Fukuoka city with my job. The number
+        of visits to eating and drinking establishments for one year is 1,000 or more in total including meals and tea
+        ceremonies. An encounter with "food" is an encounter with "people".</div>
+</div>
+
+<h1 style="color:white;">Sammy's food blog</h1>
+<div id="img_box" style="width: 80%"></div>
+<button id="load_more">load more</button>
+
+
+<script src="js/api.js"></script>
+<script src="js/trial2.js"></script>
+</body>
+</html>

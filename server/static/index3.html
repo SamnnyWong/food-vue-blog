@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            background-color: white;
+            height: 100%;
+            width: 25%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+            font-family: Helvetica;
+            font-weight: lighter;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 8px;
+            text-decoration: none;
+            font-size: 13px;
+            color: #000000;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .main {
+            margin-left: 160px; /* Same as the width of the sidenav */
+            font-size: 28px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .intro {
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+
+        .intro2 {
+            padding-left: 35%;
+        }
+
+        .intro3 {
+            padding-left: 50px;
+        }
+
+        .grid-container {
+            display: inline-grid;;
+            grid-template-columns: auto auto auto auto;
+            alignment: center;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .fa {
+            padding: 12px;
+            font-size: 30px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+            color: black;
+        }
+
+
+        .fa-facebook:hover {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-linkedin:hover {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-youtube:hover {
+            background: #bb0000;
+            color: white;
+        }
+
+        .fa-instagram:hover {
+            background-image: url('./media/ig_bg.png');
+            /*background: #125688;*/
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body style="overflow-x:hidden;">
+
+<div class="sidenav">
+    <div class="menu">
+        <a href="./index.html" style="font-size: 60px; font-weight: lighter; font-family: Helvetica">Sammy's food blog</a>
+        <a href="./index.html">Home</a>
+        <a href="./pig.html">Restaurants</a>
+        <a href="./index.html">Dev blogs</a>
+        <a href="/about.html" class="btn">About me</a>
+    </div>
+
+    <div class="intro2">
+        <img src="./media/icon.jpg" alt="Avatar" width="35%" style="border-radius: 50%">
+    </div>
+
+    <div class="grid-container intro3">
+        <a href="https://www.facebook.com/samnny.won"><i class="fa fa-facebook grid-item"></i></a>
+        <a href="https://www.linkedin.com/in/sam-wong-757560141/"> <i class="fa fa-linkedin grid-item"></i></a>
+        <a href="https://www.youtube.com/channel/UCQJvlb1fvnYJbAkYhLdugyg" ><i class="fa fa-youtube grid-item"></i></a>
+        <a href="https://www.instagram.com/samnnny/" ><i class="fa fa-instagram grid-item"></i></a>
+
+    </div>
+    </br>
+    </br>
+    <div class="intro">#foodie #food_enthuisastic #programmer #full stack developer #love gadgets</div>
+    </br>
+
+    <div class="intro">
+        My name is GuanMing Huang, but you can calle me Sam.
+    </div>
+    </br>
+
+    <div class="intro"> 【Lifetime so far】 August 1962 Born in Kurume City,
+        Fukuoka Prefecture. I spent four years as a student in Kyoto, and I went to Fukuoka city with my job. The number
+        of visits to eating and drinking establishments for one year is 1,000 or more in total including meals and tea
+        ceremonies. An encounter with "food" is an encounter with "people".
+    </div>
+</div>
+
+<div id="img_box"></div>
+
+
+<script src="js/api.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>
