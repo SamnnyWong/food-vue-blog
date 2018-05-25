@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     signin () {
-      if (!this.username & !this.pwd) alert("Please type in username and password.")
+      if (!this.username & !this.pwd) alert('Please type in username and password.')
       else {
         this.$router.push({name: 'AddBlog'})
       }

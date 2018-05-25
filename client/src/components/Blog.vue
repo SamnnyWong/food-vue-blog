@@ -7,8 +7,8 @@
       <li v-for='(post, index) in posts.reverse()' :key='index'>
       <!--<li v-for="post in posts">-->
         <router-link :to="{ name: 'BlogContent', params: {blogId: post.bcid} }"><img :src="`http://localhost:3000/api/getImage/` + post.thumbnail" /></router-link>
-        {{ post.title }}
-        {{ post.bcid }}
+        <br />
+        <div style="font-size: 30px; font-weight: bold">{{ post.blogtitle }}</div>
       </li>
     </div>
     <!--<nav class="level is-mobile">-->

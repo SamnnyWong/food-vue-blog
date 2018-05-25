@@ -42,7 +42,8 @@
               </div>
             </div>
           </div>
-          <img src='http://localhost:3000/api/getIcon/icon.jpg' alt='Avatar' width="35%" style="border-radius: 50%">
+          <img src='http://localhost:3000/api/getIcon/icon.jpg' alt='Avatar' width="20%" style="border-radius: 50%">
+          <br />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
           <div class="grid-container">
             <a href="https://www.facebook.com/samnny.won"><i class="fa fa-facebook grid-item"></i></a>
@@ -83,7 +84,6 @@ export default {
   }
   #fixed_menu {
     position: fixed;
-    width: 30%;
     /*margin-top: 30px;*/
     width: 380px;
   }
