@@ -42,6 +42,7 @@
               </div>
             </div>
           </div>
+          <br />
           <img src='http://localhost:3000/api/getIcon/icon.jpg' alt='Avatar' width="20%" style="border-radius: 50%">
           <br />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
