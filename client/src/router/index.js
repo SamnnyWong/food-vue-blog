@@ -7,6 +7,7 @@ import AboutMe from '@/components/AboutMe'
 import Contact from '@/components/Contact'
 import AddBlog from '@/components/AddBlog'
 import BlogContent from '@/components/BlogContent'
+import SignIn from '@/components/SignIn'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/blogcontent/:blogId',
       name: 'BlogContent',
       component: BlogContent
+    },
+    {
+      path: '/signin',
+      name: 'SignIn',
+      component: SignIn
     }
   ]
 })
