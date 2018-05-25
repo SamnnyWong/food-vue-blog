@@ -14,10 +14,6 @@
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
-      <p>First time to our site?
-        <router-link to="/signup">Click to sign up</router-link>
-        .
-      </p>
       <div class="clearfix">
         <button type="submit" @click="signin" class="signupbtn">Sign In</button>
       </div>

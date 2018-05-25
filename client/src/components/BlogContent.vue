@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 v-html="blogtitle"></h1>
+    <div style="font-size: 40px; font-weight: bold" v-html="blogtitle"></div>
 
     <p v-html="blogcontent"></p>
   </div>

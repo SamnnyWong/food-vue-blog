@@ -119,8 +119,8 @@ export default {
 
   .fa {
     padding: 12px;
-    font-size: 30px;
-    width: 30px;
+    font-size: 60px;
+    width: 40px;
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;

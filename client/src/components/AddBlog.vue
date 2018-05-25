@@ -1,29 +1,48 @@
 <template>
   <div>
     <h1>Add my blog post</h1>
-    <div>
-      <br />
+
+    <div class="layout-padding innerbox" style="border:1px solid #ccc; padding: 16px">
       <input type="text" v-model="blog.title" id="blog_title" placeholder="Enter Blog Title">
       <input type="text" v-model="blog.subtitle" id="blog_subtitle" placeholder="Enter blog subtitle">
-      <br />
-      <br />
       <!--<input type="file" name="thumbnail" id="thumbnail" accept="image/*">-->
       <input type="file" id="thumbnail" ref="thumbnail" accept="image/*">
-      <br />
-      <button v-on:click="postThumbnail" id="upload_thumbnail">Upload Thumbnail</button>
-      <p>Thumbnail Upload name:</p>
-      <p id="upload_thumbnail_name" ref="upload_thumbnail_name">xxx</p>
-      <br />
-      <button type="button" v-on:click="postBlog" class="btn btn-primary" id="upload_blog_content">Post Blog</button>
-      Blog Post Status:<div id="upload_blog_status"> </div>
+      <button v-on:click="postThumbnail"  placeholder="Not uploaded yet" id="upload_thumbnail">Upload Thumbnail</button>
+      <input type="text" id="upload_thumbnail_name" ref="upload_thumbnail_name" placeholder="Thumbnail Uploaded name will appear in here" readonly>
+      <!--<input type="text" id="upload_thumbnail_name" ref="upload_thumbnail_name">-->
     </div>
+    <br />
+    <br />
     <div>
       <quill-editor
-        style="height: 500px"
+        style="height: 400px"
         v-model="content"
         ref="myQuillEditor"
         :options="editorOption">
       </quill-editor>
+      <br />
+      <br />
+      <br />
+      <div class="layout-padding innerbox" style="border:1px solid #ccc; padding: 16px; width: 900px">
+        <button type="button" v-on:click="postBlog" class="btn btn-primary" id="upload_blog_content">Post Blog</button>
+        <br />
+        Blog Post Status:<div id="upload_blog_status"></div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
     </div>
   </div>
 </template>
@@ -123,7 +142,7 @@ export default {
           .then(function (response) {
           // handle success
             // the reponse return something, like the full src of the image
-            ref.$refs.upload_thumbnail_name.innerHTML = response.data.uploaded_image
+            ref.$refs.upload_thumbnail_name.placeholder = response.data.uploaded_image
           })
           .catch(function (response) {
           // handle error
@@ -138,12 +157,13 @@ export default {
       console.log(this.content)
       await api().post('/api/postBlog/', {
         req_blog_title: this.blog.title,
-        req_thumbnail: this.$refs.upload_thumbnail_name.innerHTML,
+        req_thumbnail: this.$refs.upload_thumbnail_name.placeholder,
         req_blog_content: this.content,
         req_subtitle: this.blog.subtitle
       })
         .then((response) => {
-          document.getElementById('upload_blog_status').innerHTML = response.message
+          console.log(response.data.message)
+          document.getElementById('upload_blog_status').innerHTML = response.data.message
         })
         .catch(function (error) {
           console.log(error)
@@ -152,3 +172,68 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .innerbox {
+    max-width: 900px; /* or whatever width you want. */
+    display: inline-block;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box
+  }
+
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+
+  /* Set a style for all buttons */
+  button {
+    background-color: dodgerblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .signupbtn {
+      width: 100%;
+    }
+  }
+</style>
