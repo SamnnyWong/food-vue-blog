@@ -2,12 +2,12 @@
   <div>
     <h1>Add my blog post</h1>
 
-    <div class="layout-padding innerbox" style="border:1px solid #ccc; padding: 16px">
+    <div class="layout-padding" style="border:1px solid #ccc; padding: 16px">
       <input type="text" v-model="blog.title" id="blog_title" placeholder="Enter Blog Title">
       <input type="text" v-model="blog.subtitle" id="blog_subtitle" placeholder="Enter blog subtitle">
       <!--<input type="file" name="thumbnail" id="thumbnail" accept="image/*">-->
-      <input type="file" id="thumbnail" ref="thumbnail" accept="image/*">
-      <button v-on:click="postThumbnail"  placeholder="Not uploaded yet" id="upload_thumbnail">Upload Thumbnail</button>
+        <input type="file" id="thumbnail" ref="thumbnail" accept="image/*">
+        <button v-on:click="postThumbnail"  placeholder="Not uploaded yet" id="upload_thumbnail">Upload Thumbnail</button>
       <input type="text" id="upload_thumbnail_name" ref="upload_thumbnail_name" placeholder="Thumbnail Uploaded name will appear in here" readonly>
       <!--<input type="text" id="upload_thumbnail_name" ref="upload_thumbnail_name">-->
     </div>
@@ -23,10 +23,13 @@
       <br />
       <br />
       <br />
-      <div class="layout-padding innerbox" style="border:1px solid #ccc; padding: 16px; width: 900px">
+      <div class="layout-padding innerbox post-blog-button" style="border:1px solid #ccc; padding: 16px">
+
         <button type="button" v-on:click="postBlog" class="btn btn-primary" id="upload_blog_content">Post Blog</button>
         <br />
-        Blog Post Status:<div id="upload_blog_status"></div>
+        <!--Blog Post Status:<div id="upload_blog_status"></div>-->
+
+        <input type="text" id="upload_blog_status" placeholder="Blog Post Status" readonly>
       </div>
 
       <br />
@@ -66,7 +69,7 @@ export default {
         subtitle: ''
       },
 
-      serverUrl: 'http://localhost:3000/api/api/postImage/', // 这里写你要上传的图片服务器地址
+      serverUrl: 'http://localhost:3000/api/postImage/', // 这里写你要上传的图片服务器地址
       header: {token: sessionStorage.token}, // 有的图片服务器要求请求头需要有token之类的参数，写在这里
       detailContent: '', // 富文本内容
       editorOption: {
@@ -98,7 +101,7 @@ export default {
                     var ref = this
                     axios({
                       method: 'post',
-                      url: 'http://localhost:3000/api/postImage/',
+                      url: 'http://sammy-food-blog.herokuapp.com/api/postImage/',
                       data: formData,
                       config: {headers: { 'Content-Type': 'multipart/form-data' }}
                     })
@@ -106,7 +109,7 @@ export default {
                         var resImgName = response.data.uploaded_image
                         console.log(resImgName)
                         const range = ref.quill.getSelection()
-                        ref.quill.insertEmbed(range.index, 'image', `http://localhost:3000/api/getImage/${resImgName}`)
+                        ref.quill.insertEmbed(range.index, 'image', `http://sammy-food-blog.herokuapp.com/api/getImage/${resImgName}`)
                       })
                       .catch(function (response) {
                         // handle error
@@ -135,7 +138,7 @@ export default {
         var ref = this
         await axios({
           method: 'post',
-          url: 'http://localhost:3000/api/postImage/',
+          url: 'http://sammy-food-blog.herokuapp.com/api/postImage/',
           data: formData,
           config: {headers: { 'Content-Type': 'multipart/form-data' }}
         })
@@ -163,7 +166,7 @@ export default {
       })
         .then((response) => {
           console.log(response.data.message)
-          document.getElementById('upload_blog_status').innerHTML = response.data.message
+          document.getElementById('upload_blog_status').placeholder = response.data.message
         })
         .catch(function (error) {
           console.log(error)
@@ -174,8 +177,13 @@ export default {
 </script>
 
 <style scoped>
+
+  .post-blog-button {
+    width: 100%;
+  }
+
   .innerbox {
-    max-width: 900px; /* or whatever width you want. */
+    /*max-width: 900px; !* or whatever width you want. *!*/
     display: inline-block;
   }
 
@@ -205,6 +213,10 @@ export default {
   hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
+  }
+
+  #upload_blog_content {
+    width: 100%;
   }
 
   /* Set a style for all buttons */

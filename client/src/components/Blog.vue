@@ -4,9 +4,10 @@
     <!--<h1>{{ msg }} {{index}}</h1>-->
     <!--</div>-->
     <div id="post_box">
-      <li v-for='(post, index) in posts.reverse()' :key='index'>
-      <!--<li v-for="post in posts">-->
-        <router-link :to="{ name: 'BlogContent', params: {blogId: post.bcid} }"><img :src="`http://localhost:3000/api/getImage/` + post.thumbnail" /></router-link>
+      <!--<li v-for='(post, index) in posts.reverse()' :key='index'>-->
+      <li v-for="post in posts">
+        <router-link :to="{ name: 'BlogContent', params: {blogId: post.bcid} }"><img :src="`http://sammy-food-blog.herokuapp.com/api/getImage/` + post.thumbnail" /></router-link>
+        <!--<router-link :to="{ name: 'BlogContent', params: {blogId: post.bcid} }"><img :src="`http://localhost:3000/api/getImage/` + post.thumbnail" /></router-link>-->
         <br />
         <div style="font-size: 30px; font-weight: bold">{{ post.blogtitle }}</div>
       </li>
@@ -60,6 +61,7 @@ export default {
       await api().get('/api/getBlogLog/')
         .then((response) => {
           this.posts = response.data.res_blogs
+          this.posts.reverse()
         })
         .catch(function (error) {
           console.log(error)
@@ -88,17 +90,4 @@ export default {
   a {
     color: #42b983;
   }
-  /*#post_box {*/
-    /*margin-right: 50px;*/
-    /*margin-top: 50px;*/
-    /*margin-left: 50px;*/
-    /*!*width: 90%;*!*/
-  /*}*/
-  /*@media screen and (max-width: 768px) {*/
-    /*#post_box {*/
-      /*margin-right: 5px;*/
-      /*margin-top: 5px;*/
-      /*margin-left: 5px;*/
-    /*}*/
-  /*}*/
 </style>
