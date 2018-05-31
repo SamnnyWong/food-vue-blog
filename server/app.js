@@ -6,9 +6,7 @@ var bodyParser = require('body-parser');
 const cookie = require('cookie');
 var mime = require('mime-types');
 const http = require('http');
-const PORT = 3000;
-// var PORT = process.env.PORT || 3000;
-
+const resize = require('./resize');
 
 var username = "1";
 var pwd = "1";
@@ -83,6 +81,48 @@ function guid() {
         return v.toString(16);
     });
 }
+
+app.get('/api/getImage800/:imageId/', (req, res) => {
+
+    // const widthString = req.query.width;
+    // const heightString = req.query.height;
+    // const format = req.query.format;
+    // let width, height;
+    // if (widthString) {
+    //     width = parseInt(widthString);
+    // }
+    // if (heightString) {
+    //     height = parseInt(heightString);
+    // }
+
+    console.log(req.params.imageId);
+    const width = 800;
+    const format = 'png';
+    res.type(`image/${format || 'png'}`);
+    resize(path.join(__dirname,'/static/uploads/', req.params.imageId), format, width).pipe(res);
+});
+
+
+// http://localhost:8000?format=png&width=200&height=200
+app.get('/api/resizeThumbnail/:imageId/', (req, res) => {
+
+    // const widthString = req.query.width;
+    // const heightString = req.query.height;
+    // const format = req.query.format;
+    // let width, height;
+    // if (widthString) {
+    //     width = parseInt(widthString);
+    // }
+    // if (heightString) {
+    //     height = parseInt(heightString);
+    // }
+
+    console.log(req.params.imageId);
+    const width = 400;
+    const format = 'png';
+    res.type(`image/${format || 'png'}`);
+    resize(path.join(__dirname,'/static/uploads/', req.params.imageId), format, width).pipe(res);
+});
 
 app.get('/api/getPics/', function (req, res, next) {
     var test = [1];
@@ -225,6 +265,7 @@ app.post('/signin/', function (req, res, next) {
     }
 });
 
+const PORT = 3000;
 http.createServer(app).listen(PORT, function (err) {
     if (err) console.log(err);
     else console.log("HTTP server on http://localhost:%s", PORT);
