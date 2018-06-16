@@ -2,6 +2,17 @@
   <div>
     <div style="font-size: 40px; font-weight: bold" v-html="blogtitle"></div>
 
+    <ul class="post-meta">
+      <li>
+          <time class="entry-date published updated" datetime="2018-06-05T11:50:23-05:00">June 5, 2018</time>
+      </li>
+      <li class="meta-author">
+        <span class="meta-separator">by</span>
+        <span class="author vcard">
+          <a class="url fn n" href="https://www.newsledge.com/author/marcus-chavers/" title="View all posts by Marcus Chavers">Marcus Chavers</a>
+        </span>
+      </li>
+    </ul>
     <p v-html="blogcontent"></p>
   </div>
 </template>
