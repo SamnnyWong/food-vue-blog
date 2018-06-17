@@ -21,7 +21,8 @@
     <div style="margin: 50px" id="post_box" class="grid-container">
       <li class="grid-item" v-for="(post, i) in posts" :key="i">
         <router-link :to="{ name: 'BlogContent', params: {blogId: post.bcid} }">
-          <img :src="`http://sammy-food-blog.herokuapp.com/api/getImage800/` + post.thumbnail" />
+          <!--<img :src="`http://sammy-food-blog.herokuapp.com/api/getImage800/` + post.thumbnail" />-->
+          <img :src="`http://localhost:3000/api/getImage800/` + post.thumbnail" />
         </router-link>
         <br />
         <router-link :to="{ name: 'BlogContent', params: {blogId: post.bcid} }">

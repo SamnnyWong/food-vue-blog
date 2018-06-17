@@ -16,7 +16,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .parallax {
-    background-image: url("http://sammy-food-blog.herokuapp.com/api/getImage800/a2f2a907648fc84ad688b2e48eeda2431527235221671.jpeg");
+    /*background-image: url("http://sammy-food-blog.herokuapp.com/api/getImage800/a2f2a907648fc84ad688b2e48eeda2431527235221671.jpeg");*/
+    background-image: url("http://localhost:3000/api/getImage800/a2f2a907648fc84ad688b2e48eeda2431527235221671.jpeg");
     height: 100%;
     /* Create the parallax scrolling effect */
     background-attachment: fixed;

@@ -8,9 +8,9 @@
         <router-link :to="{ name: 'BlogContent', params: {blogId: post.bcid} }">
 
           <figure class="snip1572">
-            <!--<img :src="`http://localhost:3000/api/resizeThumbnail/` + post.thumbnail" />-->
+            <img :src="`http://localhost:3000/api/resizeThumbnail/` + post.thumbnail" />
 
-            <img :src="`http://sammy-food-blog.herokuapp.com/api/getImage/` + post.thumbnail" />
+            <!--<img :src="`http://sammy-food-blog.herokuapp.com/api/getImage/` + post.thumbnail" />-->
             <figcaption>
               <h3>{{ post.blogtitle }}</h3>
             </figcaption>
@@ -24,8 +24,6 @@
 <script>
 import { Stack, StackItem } from 'vue-stack-grid'
 import api from '@/services/api'
-
-import Vue from 'vue'
 import Spinner from 'vue-spinkit'
 
 // Vue.component('Spinner', Spinner)

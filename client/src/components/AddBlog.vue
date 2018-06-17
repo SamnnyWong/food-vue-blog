@@ -96,7 +96,8 @@ export default {
                     var ref = this
                     axios({
                       method: 'post',
-                      url: 'http://sammy-food-blog.herokuapp.com/api/postImage/',
+                      // url: 'http://sammy-food-blog.herokuapp.com/api/postImage/',
+                      url: 'http://localhost:3000/api/postImage/',
                       data: formData,
                       config: {headers: {'Content-Type': 'multipart/form-data'}}
                     })
@@ -104,7 +105,8 @@ export default {
                         var resImgName = response.data.uploaded_image
                         console.log(resImgName)
                         const range = ref.quill.getSelection()
-                        ref.quill.insertEmbed(range.index, 'image', `http://sammy-food-blog.herokuapp.com/api/getImage/${resImgName}`)
+                        // ref.quill.insertEmbed(range.index, 'image', `http://sammy-food-blog.herokuapp.com/api/getImage/${resImgName}`)
+                        ref.quill.insertEmbed(range.index, 'image', `http://localhost:3000/api/getImage/${resImgName}`)
                       })
                       .catch(function (response) {
                         // handle error
@@ -133,7 +135,8 @@ export default {
         var ref = this
         await axios({
           method: 'post',
-          url: 'http://sammy-food-blog.herokuapp.com/api/postImage/',
+          // url: 'http://sammy-food-blog.herokuapp.com/api/postImage/',
+          url: 'http://localhost:3000/api/postImage/',
           data: formData,
           config: {headers: {'Content-Type': 'multipart/form-data'}}
         })
