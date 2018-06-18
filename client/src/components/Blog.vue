@@ -93,7 +93,9 @@ export default {
           this.posts.reverse()
         })
         .catch(function (error) {
-          console.log(error)
+          console.log("hit here")
+          console.log(error.response)
+          console.log("above is inside catch when callinf getStuff")
         })
     }
   }
