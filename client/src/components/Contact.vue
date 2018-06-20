@@ -38,7 +38,7 @@ export default {
   .parent {
     width: 550px;
     height: 343px;
-    background-image: url(http://sammy-food-blog.herokuapp.com/api/getIcon/buddha.jpg);
+    background-image: url(http://localhost:3000/api/getIcon/buddha.jpg);
     background-size: contain;
     background-repeat: no-repeat;
   }
