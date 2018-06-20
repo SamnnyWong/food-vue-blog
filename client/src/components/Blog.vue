@@ -94,7 +94,7 @@ export default {
         })
         .catch(function (error) {
           console.log('hit here')
-          console.log(error.response)
+          console.log(error)
           console.log('above is inside catch when callinf getStuff')
         })
     }
